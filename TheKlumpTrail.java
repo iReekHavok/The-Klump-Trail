@@ -3,10 +3,10 @@
 Created by Brendan Cagampang, Andrea Ecarma, Edgar Flores, and Mike Palermo.
 
 These were the tasks assigned:
-Brendan - 
+Brendan - Situation 3
 Andrea - 
 Edgar - 
-Mike - 
+Mike - Siatuation 1
 
 The purpose of this project is to make Dr. Klump either laugh or cry. That is all.
 
