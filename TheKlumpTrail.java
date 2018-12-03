@@ -49,7 +49,7 @@ class KlumpFrame extends JFrame implements ActionListener{
     }
     public void configureUI() {
         setDefaultCloseOperation(EXIT_ON_CLOSE);
-        setBounds(100,100,500,500);
+        setBounds(100,100,1000,1000);
         setTitle("The Klump Trail V0.1");
         Container c = getContentPane();
         c.setLayout(new BorderLayout());
