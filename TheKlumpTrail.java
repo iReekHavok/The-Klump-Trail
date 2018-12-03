@@ -33,7 +33,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 class KlumpFrame{}
-class SitPan{}
+class SitPan1{}
 class SitPan2{}
 class SitPan3{}
 class SitPan4{}
