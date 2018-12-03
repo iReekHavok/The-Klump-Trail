@@ -34,6 +34,9 @@ import javax.swing.JPanel;
 
 class KlumpFrame{}
 class SitPan{}
+class SitPan2{}
+class SitPan3{}
+class SitPan4{}
 
 public class TheKlumpTrail {
     public static void main(String[] args) {
