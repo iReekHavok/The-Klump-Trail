@@ -8,7 +8,7 @@ Andrea -
 Edgar - 
 Mike - 
 
-The purpose of this project is to make Klump laugh. That is all.
+The purpose of this project is to make Dr. Klump either laugh or cry. That is all.
 
 This is a clicking game, so the user just needs to click Next and sometimes select an option.
 
