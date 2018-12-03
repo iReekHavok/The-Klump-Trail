@@ -33,7 +33,6 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 class KlumpFrame extends JFrame implements ActionListener{
-
     public void configureMenu() {
         JMenuBar bar = new JMenuBar();
         JMenu mnuFile = new JMenu("File");
@@ -44,6 +43,8 @@ class KlumpFrame extends JFrame implements ActionListener{
             }
         });
         mnuFile.add(miExit);
+        JMenuItem miNG = new JMenuItem("New Game");
+        mnuFIle.add(miNG);
         bar.add(mnuFile);
     }
     public void configureUI() {
