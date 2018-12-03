@@ -19,16 +19,16 @@ package theklumptrail;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Container;
-import java.awt.Dimension;
-import java.awt.FlowLayout;
 import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.util.ArrayList;
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
@@ -44,7 +44,7 @@ class KlumpFrame extends JFrame implements ActionListener{
         });
         mnuFile.add(miExit);
         JMenuItem miNG = new JMenuItem("New Game");
-        mnuFIle.add(miNG);
+        mnuFile.add(miNG);
         bar.add(mnuFile);
     }
     public void configureUI() {
