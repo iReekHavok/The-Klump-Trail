@@ -15,7 +15,7 @@ This is a clicking game, so the user just needs to click Next and sometimes sele
 
 */
 
-package tktsit3;
+package theklumptrail;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Container;
