@@ -32,6 +32,31 @@ import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
+class SitPan1{
+  
+  public LinePanel(ArrayList<Point> points) {
+        this.points = points;
+        setFocusable(true);
+        addMouseListener(this);
+        addMouseMotionListener(this);
+        addKeyListener(this);
+        message = "sup"; 
+        pointSize = 10;
+        color = Color.BLACK;
+        lineEnable = true;
+        noLine = false;
+    }
+  public void paintComponent(Graphics g) { // Drawing the points
+        super.paintComponent(g);
+        Font F = new Font("Helvetica", Font.REGULAR,16);
+        g.setFont(f);
+        g.drawString(
+    }
+}
+class SitPan2{}
+class SitPan3{}
+class SitPan4{}
+
 class KlumpFrame extends JFrame implements ActionListener{
     public void configureMenu() {
         JMenuBar bar = new JMenuBar();
@@ -71,30 +96,6 @@ class KlumpFrame extends JFrame implements ActionListener{
         configureUI();
     }
 }
-class SitPan1{
-  
-  public LinePanel(ArrayList<Point> points) {
-        this.points = points;
-        setFocusable(true);
-        addMouseListener(this);
-        addMouseMotionListener(this);
-        addKeyListener(this);
-        message = "sup"; 
-        pointSize = 10;
-        color = Color.BLACK;
-        lineEnable = true;
-        noLine = false;
-    }
-  public void paintComponent(Graphics g) { // Drawing the points
-        super.paintComponent(g);
-        Font F = new Font("Helvetica", Font.REGULAR,16);
-        g.setFont(f);
-        g.drawString(
-    }
-}
-class SitPan2{}
-class SitPan3{}
-class SitPan4{}
 
 public class TheKlumpTrail {
     public static void main(String[] args) {
