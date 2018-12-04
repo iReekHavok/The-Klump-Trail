@@ -69,16 +69,28 @@ class SitPan3 extends JPanel {
     }
     public SitPan3() {}
 }
+class SitPan3_2 extends JPanel {
+    public void paintComponent(Graphics g) {
+        super.paintComponent(g);
+        Font f = new Font("Helvetica",Font.PLAIN,22);
+        g.setFont(f);
+        g.drawString("Suddenly, the sound cuts off and the voice of Angus Young fills the air. "
+                + "“ALRIGHT FUCKERS",30,30);
+    }
+    public SitPan3_2() {}
+}
 
 class KlumpFrame extends JFrame implements ActionListener{
     private Sit3 sit3Text;
     private SitPan3 sp3;
+    private SitPan3_2 sp3_2;
     
     public void actionPerformed(ActionEvent e) {
         e.getSource();
     }
     public void configureMenu() {
         JMenuBar bar = new JMenuBar();
+        setJMenuBar(bar);
         JMenu mnuFile = new JMenu("File");
         JMenuItem miExit = new JMenuItem("Exit");
         miExit.addActionListener(new ActionListener() {
@@ -90,8 +102,6 @@ class KlumpFrame extends JFrame implements ActionListener{
         JMenuItem miNG = new JMenuItem("New Game");
         mnuFile.add(miNG);
         bar.add(mnuFile);
-        setJMenuBar(bar);
-        
     }
     public void configureUI() {
         setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -106,12 +116,23 @@ class KlumpFrame extends JFrame implements ActionListener{
         JButton btn3_1 = new JButton();
         JButton btn3_2 = new JButton();
         JButton btn3_3 = new JButton();
+        JButton btnNext = new JButton();
         btn3_1.setText("Join the mosh pit");
         btn3_2.setText("Ignore the mosh pit");
         btn3_3.setText("Call the police");
+        btnNext.setText("Next");
         c.add(panRight, BorderLayout.EAST);
         c.add(panCenter, BorderLayout.CENTER);
         c.add(panSouth, BorderLayout.SOUTH);
+        
+        btnNext.addActionListener(  // replaces text in South border with next text
+                new ActionListener() {
+                    public void actionPerformed(ActionEvent e) {
+                        
+                        repaint();
+                    }
+                }
+        );
 
         btn3_1.addActionListener(
                 new ActionListener() {
@@ -123,6 +144,7 @@ class KlumpFrame extends JFrame implements ActionListener{
                                 null));
                         btn3_2.setEnabled(false);
                         btn3_3.setEnabled(false);
+                        btnNext.setEnabled(false);
                         repaint();
                     }
                 }
@@ -141,6 +163,7 @@ class KlumpFrame extends JFrame implements ActionListener{
                                 null));
                         btn3_1.setEnabled(false);
                         btn3_3.setEnabled(false);
+                        btnNext.setEnabled(false);
                         repaint();
                     }
                 }
@@ -157,6 +180,7 @@ class KlumpFrame extends JFrame implements ActionListener{
                                 null));
                         btn3_1.setEnabled(false);
                         btn3_2.setEnabled(false);
+                        btnNext.setEnabled(false);
                         repaint();
                     }
                 }
@@ -164,6 +188,7 @@ class KlumpFrame extends JFrame implements ActionListener{
         panRight.add(btn3_1);
         panRight.add(btn3_2);
         panRight.add(btn3_3);
+        panRight.add(btnNext);
         panCenter.setBackground(Color.BLACK);
         sp3 = new SitPan3();
         sp3.setPreferredSize(new Dimension(300,150));
