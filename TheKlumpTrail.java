@@ -63,7 +63,7 @@ class SitPan3 extends JPanel {
                 + " environment.",30,55);
         g.drawString("Expensive beer and food, cover band playing their set, and no one enjoying"
                 + " the current music. He",20,80);
-        g.drawString(" sits patiently in the corner of the venue waiting for the ‚Äúbest‚Äù band on Earth"
+        g.drawString(" sits patiently in the corner of the venue waiting for the ìbestî band on Earth"
                 + " to come on stage.",30,105);
         g.drawString("He passes the time by playing Candy Crush on his phone.",200,130);
     }
@@ -75,7 +75,7 @@ class SitPan3_2 extends JPanel {
         Font f = new Font("Helvetica",Font.PLAIN,22);
         g.setFont(f);
         g.drawString("Suddenly, the sound cuts off and the voice of Angus Young fills the air. "
-                + "‚ÄúALRIGHT FUCKERS",30,30);
+                + "ìALRIGHT FUCKERS",30,30);
     }
     public SitPan3_2() {}
 }
@@ -138,7 +138,7 @@ class KlumpFrame extends JFrame implements ActionListener{
                 new ActionListener() {
                     public void actionPerformed(ActionEvent e) {
                         sit3Text.setSit3Text(String.format(
-                                "‚ÄúLET‚ÄôS FUCKING GOOOOOO‚Äù exclaims Dr. Klump, as "
+                                "ìLETíS FUCKING GOOOOOOî exclaims Dr. Klump, as "
                                         + "he flails his arms and legs around, hitting "
                                         + "various people, even knocking some out cold.",
                                 null));
@@ -156,8 +156,8 @@ class KlumpFrame extends JFrame implements ActionListener{
                                 "Dr. Klump ignores the youngsters and continues to rock on"
                                         + " at the front of the stage. Angus Young sees him"
                                         + " up front enjoying their set, so he shines a light"
-                                        + " on him, points, and says ‚ÄúYOU! You don‚Äôt have much"
-                                        + " time left, so get up here and join us!‚Äù Not knowing"
+                                        + " on him, points, and says ìYOU! You donít have much"
+                                        + " time left, so get up here and join us!î Not knowing"
                                         + " whether to be happy or sad about that statement, he "
                                         + "gets on stage and spends the rest of the day with the band.",
                                 null));
@@ -172,10 +172,10 @@ class KlumpFrame extends JFrame implements ActionListener{
                 new ActionListener() {
                     public void actionPerformed(ActionEvent e) {
                         sit3Text.setSit3Text(String.format(
-                                "‚ÄúDr. Klump fears for his life and decides to call the police. ‚ÄúThere‚Äôs a "
-                                        + "mosh pit starting up and I‚Äôm scared. Please stop them!‚Äù One of "
-                                        + "the teens in the mosh pit sees this and yells ‚ÄúHE‚ÄôS CALLING THE "
-                                        + "COPS, GET HIS ASS!‚Äù The pit gathers around Klump, waits for the"
+                                "ìDr. Klump fears for his life and decides to call the police. ìThereís a "
+                                        + "mosh pit starting up and Iím scared. Please stop them!î One of "
+                                        + "the teens in the mosh pit sees this and yells ìHEíS CALLING THE "
+                                        + "COPS, GET HIS ASS!î The pit gathers around Klump, waits for the"
                                         + " drop, and then tramples him to death. END",
                                 null));
                         btn3_1.setEnabled(false);
@@ -201,7 +201,7 @@ class KlumpFrame extends JFrame implements ActionListener{
 }
 
 // MAIN CODE - MAIN CODE - MAIN CODE - MAIN CODE - MAIN CODE - MAIN CODE - MAIN CODE - MAIN CODE - MAIN CODE - MAIN CODE
-public class TKTSit3 {
+public class TheKlumpTrail {
     public static void main(String[] args) {
         KlumpFrame kfrm = new KlumpFrame();
         kfrm.setVisible(true);
