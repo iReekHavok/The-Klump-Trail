@@ -53,17 +53,26 @@ class Sit3 {
     }
 }
 class SitPan3 extends JPanel {
-    public SitPan3() {};
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
-        Font f = new Font("Helvetica", Font.PLAIN,22);
+        Font f = new Font("Helvetica",Font.PLAIN,22);
         g.setFont(f);
-        g.drawString("Dr. Klump has now arrived at the venue and is very excited!",200,200);
+        g.drawString("Dr. Klump has now arrived at the venue and is very excited! He waits in line, "
+                + "head-banging to the",30,30);
+        g.drawString(" music in his head. Dr. Klump gets in with a bunch of millenials and soaks in the"
+                + " environment.",30,55);
+        g.drawString("Expensive beer and food, cover band playing their set, and no one enjoying"
+                + " the current music. He",20,80);
+        g.drawString(" sits patiently in the corner of the venue waiting for the ‚Äúbest‚Äù band on Earth"
+                + " to come on stage.",30,105);
+        g.drawString("He passes the time by playing Candy Crush on his phone.",200,130);
     }
+    public SitPan3() {}
 }
 
 class KlumpFrame extends JFrame implements ActionListener{
     private Sit3 sit3Text;
+    private SitPan3 sp3;
     
     public void actionPerformed(ActionEvent e) {
         e.getSource();
@@ -100,21 +109,15 @@ class KlumpFrame extends JFrame implements ActionListener{
         btn3_1.setText("Join the mosh pit");
         btn3_2.setText("Ignore the mosh pit");
         btn3_3.setText("Call the police");
-        panRight.add(btn3_1);
-        panRight.add(btn3_2);
-        panRight.add(btn3_3);
         c.add(panRight, BorderLayout.EAST);
-        c.add(panSouth, BorderLayout.SOUTH);
         c.add(panCenter, BorderLayout.CENTER);
-        SitPan3 sp3 = new SitPan3();
-        c.add(sp3, BorderLayout.SOUTH);
-        sp3.setPreferredSize(new Dimension(300,150));
-        
+        c.add(panSouth, BorderLayout.SOUTH);
+
         btn3_1.addActionListener(
                 new ActionListener() {
                     public void actionPerformed(ActionEvent e) {
                         sit3Text.setSit3Text(String.format(
-                                "ìLETíS FUCKING GOOOOOOî exclaims Dr. Klump, as "
+                                "‚ÄúLET‚ÄôS FUCKING GOOOOOO‚Äù exclaims Dr. Klump, as "
                                         + "he flails his arms and legs around, hitting "
                                         + "various people, even knocking some out cold.",
                                 null));
@@ -131,8 +134,8 @@ class KlumpFrame extends JFrame implements ActionListener{
                                 "Dr. Klump ignores the youngsters and continues to rock on"
                                         + " at the front of the stage. Angus Young sees him"
                                         + " up front enjoying their set, so he shines a light"
-                                        + " on him, points, and says ìYOU! You donít have much"
-                                        + " time left, so get up here and join us!î Not knowing"
+                                        + " on him, points, and says ‚ÄúYOU! You don‚Äôt have much"
+                                        + " time left, so get up here and join us!‚Äù Not knowing"
                                         + " whether to be happy or sad about that statement, he "
                                         + "gets on stage and spends the rest of the day with the band.",
                                 null));
@@ -146,10 +149,10 @@ class KlumpFrame extends JFrame implements ActionListener{
                 new ActionListener() {
                     public void actionPerformed(ActionEvent e) {
                         sit3Text.setSit3Text(String.format(
-                                "ìDr. Klump fears for his life and decides to call the police. ìThereís a "
-                                        + "mosh pit starting up and Iím scared. Please stop them!î One of "
-                                        + "the teens in the mosh pit sees this and yells ìHEíS CALLING THE "
-                                        + "COPS, GET HIS ASS!î The pit gathers around Klump, waits for the"
+                                "‚ÄúDr. Klump fears for his life and decides to call the police. ‚ÄúThere‚Äôs a "
+                                        + "mosh pit starting up and I‚Äôm scared. Please stop them!‚Äù One of "
+                                        + "the teens in the mosh pit sees this and yells ‚ÄúHE‚ÄôS CALLING THE "
+                                        + "COPS, GET HIS ASS!‚Äù The pit gathers around Klump, waits for the"
                                         + " drop, and then tramples him to death. END",
                                 null));
                         btn3_1.setEnabled(false);
@@ -158,6 +161,13 @@ class KlumpFrame extends JFrame implements ActionListener{
                     }
                 }
         );
+        panRight.add(btn3_1);
+        panRight.add(btn3_2);
+        panRight.add(btn3_3);
+        panCenter.setBackground(Color.BLACK);
+        sp3 = new SitPan3();
+        sp3.setPreferredSize(new Dimension(300,150));
+        c.add(sp3, BorderLayout.SOUTH);
         
     }
     public KlumpFrame() {
