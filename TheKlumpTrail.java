@@ -46,7 +46,7 @@ class SitPan1 extends JPanel{
         g.setFont(f);
         g.drawString("The year is 2020 and summer vacation has just started. ",250,25);
         g.drawString("Despite that, Dr. Klump has woken up at 7:00 am and exclaimed",250,50);
-        g.drawString(" \"I can’t wait to go to this ACDC concert at 10 in the morning!",250,75);
+        g.drawString(" \"I can't wait to go to this ACDC concert at 10 in the morning!",250,75);
         g.drawString(" I wonder what I should wear...\"",250,100);
     }
 }
@@ -171,8 +171,8 @@ class KlumpFrame extends JFrame implements ActionListener{
                                 "Dr. Klump ignores the youngsters and continues to rock on"
                                         + " at the front of the stage. Angus Young sees him"
                                         + " up front enjoying their set, so he shines a light"
-                                        + " on him, points, and says �YOU! You don�t have much"
-                                        + " time left, so get up here and join us!� Not knowing"
+                                        + " on him, points, and says \"YOU! You don't have much"
+                                        + " time left, so get up here and join us!\" Not knowing"
                                         + " whether to be happy or sad about that statement, he "
                                         + "gets on stage and spends the rest of the day with the band.",
                                 null));
@@ -190,7 +190,7 @@ class KlumpFrame extends JFrame implements ActionListener{
                                 "Dr. Klump fears for his life and decides to call the police. \"There's a "
                                         + "mosh pit starting up and I'm scared. Please stop them!\" One of "
                                         + "the teens in the mosh pit sees this and yells \"HE'S CALLING THE "
-                                        + "COPS, GET HIS ASS!The pit gathers around Klump, waits for the"
+                                        + "COPS, GET HIS ASS!\" The pit gathers around Klump, waits for the"
                                         + " drop, and then tramples him to death. END",
                                 null));
                         btn3_1.setEnabled(false);
