@@ -47,7 +47,7 @@ class SitPan1 extends JPanel{
         g.drawString("The year is 2020 and summer vacation has just started. ",250,25);
         g.drawString("Despite that, Dr. Klump has woken up at 7:00 am and exclaimed",250,50);
         g.drawString(" “I can’t wait to go to this ACDC concert at 10 in the morning!",250,75);
-        g.drawString(" I wonder what I should wear…”",250,100);
+        g.drawString(" I wonder what I should wear...",250,100);
     }
 }
 
@@ -90,6 +90,7 @@ class SitPan3 extends JPanel {
 
     }
 }
+
 class SitPan3_2 extends JPanel {
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
@@ -117,6 +118,9 @@ class SitPan4 extends JPanel { // Andrea Ecarma
 }
 
 class KlumpFrame extends JFrame implements ActionListener{
+    private Sit3 sit3Text;
+    private SitPan3 sp3;
+    
     public void configureMenu() {
         JMenuBar bar = new JMenuBar();
         JMenu mnuFile = new JMenu("File");
@@ -166,7 +170,7 @@ class KlumpFrame extends JFrame implements ActionListener{
                 new ActionListener() {
                     public void actionPerformed(ActionEvent e) {
                         sit3Text.setSit3Text(String.format(
-                                "�LET�S FUCKING GOOOOOO� exclaims Dr. Klump, as "
+                                "\"LET'S FUCKING GOOOOOO\" exclaims Dr. Klump, as "
                                         + "he flails his arms and legs around, hitting "
                                         + "various people, even knocking some out cold.",
                                 null));
@@ -200,10 +204,10 @@ class KlumpFrame extends JFrame implements ActionListener{
                 new ActionListener() {
                     public void actionPerformed(ActionEvent e) {
                         sit3Text.setSit3Text(String.format(
-                                "�Dr. Klump fears for his life and decides to call the police. �There�s a "
-                                        + "mosh pit starting up and I�m scared. Please stop them!� One of "
-                                        + "the teens in the mosh pit sees this and yells �HE�S CALLING THE "
-                                        + "COPS, GET HIS ASS!� The pit gathers around Klump, waits for the"
+                                "Dr. Klump fears for his life and decides to call the police. \"There's a "
+                                        + "mosh pit starting up and I'm scared. Please stop them!\" One of "
+                                        + "the teens in the mosh pit sees this and yells \"HE'S CALLING THE "
+                                        + "COPS, GET HIS ASS!The pit gathers around Klump, waits for the"
                                         + " drop, and then tramples him to death. END",
                                 null));
                         btn3_1.setEnabled(false);
@@ -221,10 +225,6 @@ class KlumpFrame extends JFrame implements ActionListener{
         sp3 = new SitPan3();
         sp3.setPreferredSize(new Dimension(300,150));
         c.add(sp3, BorderLayout.SOUTH);
-        JPanel panRight = new JPanel(new GridLayout(3,1));
-        JPanel panSouth = new JPanel(new FlowLayout());
-        JPanel panCenter = new JPanel();
-        JButton btnNext = new JButton();
         c.add(panRight, BorderLayout.EAST);
         c.add(panCenter, BorderLayout.CENTER);
         c.add(panSouth, BorderLayout.SOUTH);
