@@ -49,10 +49,11 @@ class SitPan1 extends JPanel{
         g.drawString(" “I can’t wait to go to this ACDC concert at 10 in the morning!",250,75);
         g.drawString(" I wonder what I should wear…”",250,100);
     }
-
 }
 
-class SitPan2{}
+class SitPan2 {
+
+}
 
 class Sit3 {
     private String sit3Text;
@@ -85,7 +86,9 @@ class SitPan3 extends JPanel {
                 + " to come on stage.",30,105);
         g.drawString("He passes the time by playing Candy Crush on his phone.",200,130);
     }
-    public SitPan3() {}
+    public SitPan3() {
+
+    }
 }
 class SitPan3_2 extends JPanel {
     public void paintComponent(Graphics g) {
@@ -95,13 +98,23 @@ class SitPan3_2 extends JPanel {
         g.drawString("Suddenly, the sound cuts off and the voice of Angus Young fills the air. "
                 + "�ALRIGHT FUCKERS",30,30);
     }
-    public SitPan3_2() {}
+    public SitPan3_2() {
+
+    }
 }
 
-=======
-class SitPan3{}
+class SitPan3{
 
-class SitPan4{}
+}
+
+class SitPan4 extends JPanel { // Andrea Ecarma
+    public void paintComponent(Graphics g) {
+        super.paintComponent(g);
+        Font f = new Font("Helvetica",Font.PLAIN,22);
+        g.setFont(f);
+        g.drawString("");
+    }
+}
 
 class KlumpFrame extends JFrame implements ActionListener{
     public void configureMenu() {
