@@ -19,12 +19,16 @@ package theklumptrail;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Container;
+import java.awt.Dimension;
+import java.awt.FlowLayout;
+import java.awt.Font;
 import java.awt.Graphics;
+import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import java.util.ArrayList;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
@@ -46,7 +50,7 @@ class SitPan1{
         lineEnable = true;
         noLine = false;
     }
-  public void paintComponent(Graphics g) { // Drawing the points
+  public void paintComponent(Graphics g) {
         super.paintComponent(g);
         Font F = new Font("Helvetica", Font.REGULAR,16);
         g.setFont(f);
@@ -76,23 +80,18 @@ class KlumpFrame extends JFrame implements ActionListener{
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setBounds(100,100,1000,1000);
         setTitle("The Klump Trail V0.1");
+        configureMenu();
         Container c = getContentPane();
         c.setLayout(new BorderLayout());
-        lpan = new LinePanel(points);
-        c.add(lpan,BorderLayout.CENTER);
-        JPanel panSouth = new JPanel();
-        panSouth.setLayout(new FlowLayout());
-        JLabel lblPointSize = new JLabel("Point Size");
-        txtPointSize = new JTextField(5);
-        txtPointSize.addKeyListener(this);
-        panSouth.add(lblPointSize);
-        panSouth.add(txtPointSize);
-        c.add(panSouth,BorderLayout.SOUTH);
-        configureMenu();
+        JPanel panRight = new JPanel(new GridLayout(3,1));
+        JPanel panSouth = new JPanel(new FlowLayout());
+        JPanel panCenter = new JPanel();
+        JButton btnNext = new JButton();
+        c.add(panRight, BorderLayout.EAST);
+        c.add(panCenter, BorderLayout.CENTER);
+        c.add(panSouth, BorderLayout.SOUTH);
     }
-    public LineFrame(ArrayList<Point> points) {
-        this.points = points;
-        pr = new PointRandomizer();
+    public KlumpFrame() {
         configureUI();
     }
 }
