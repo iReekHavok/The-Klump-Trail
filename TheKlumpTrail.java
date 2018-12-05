@@ -36,6 +36,16 @@ import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
+class SitPan1{
+  public void paintComponent(Graphics g) {
+        super.paintComponent(g);
+        Font F = new Font("Helvetica", Font.PLAIN,16);
+        g.setFont(f);
+        g.drawString(
+    }
+}
+class SitPan2{}
+
 class Sit3 {
     private String sit3Text;
     public String getSit3Text() {
@@ -80,17 +90,11 @@ class SitPan3_2 extends JPanel {
     public SitPan3_2() {}
 }
 
+class SitPan4{}
+
 class KlumpFrame extends JFrame implements ActionListener{
-    private Sit3 sit3Text;
-    private SitPan3 sp3;
-    private SitPan3_2 sp3_2;
-    
-    public void actionPerformed(ActionEvent e) {
-        e.getSource();
-    }
     public void configureMenu() {
         JMenuBar bar = new JMenuBar();
-        setJMenuBar(bar);
         JMenu mnuFile = new JMenu("File");
         JMenuItem miExit = new JMenuItem("Exit");
         miExit.addActionListener(new ActionListener() {
@@ -105,12 +109,12 @@ class KlumpFrame extends JFrame implements ActionListener{
     }
     public void configureUI() {
         setDefaultCloseOperation(EXIT_ON_CLOSE);
-        setBounds(10,10,1000,1000);
-        setTitle("The Klump Trail v0.1");
+        setBounds(100,100,1000,1000);
+        setTitle("The Klump Trail V0.1");
         configureMenu();
         Container c = getContentPane();
         c.setLayout(new BorderLayout());
-        JPanel panRight = new JPanel(new GridLayout(3,1));
+       JPanel panRight = new JPanel(new GridLayout(3,1));
         JPanel panSouth = new JPanel(new FlowLayout());
         JPanel panCenter = new JPanel();
         JButton btn3_1 = new JButton();
@@ -193,14 +197,12 @@ class KlumpFrame extends JFrame implements ActionListener{
         sp3 = new SitPan3();
         sp3.setPreferredSize(new Dimension(300,150));
         c.add(sp3, BorderLayout.SOUTH);
-        
     }
     public KlumpFrame() {
         configureUI();
     }
 }
 
-// MAIN CODE - MAIN CODE - MAIN CODE - MAIN CODE - MAIN CODE - MAIN CODE - MAIN CODE - MAIN CODE - MAIN CODE - MAIN CODE
 public class TheKlumpTrail {
     public static void main(String[] args) {
         KlumpFrame kfrm = new KlumpFrame();
