@@ -46,8 +46,8 @@ class SitPan1 extends JPanel{
         g.setFont(f);
         g.drawString("The year is 2020 and summer vacation has just started. ",250,25);
         g.drawString("Despite that, Dr. Klump has woken up at 7:00 am and exclaimed",250,50);
-        g.drawString(" “I can’t wait to go to this ACDC concert at 10 in the morning!",250,75);
-        g.drawString(" I wonder what I should wear...",250,100);
+        g.drawString(" \"I can’t wait to go to this ACDC concert at 10 in the morning!",250,75);
+        g.drawString(" I wonder what I should wear...\"",250,100);
     }
 }
 
@@ -82,30 +82,13 @@ class SitPan3 extends JPanel {
                 + " environment.",30,55);
         g.drawString("Expensive beer and food, cover band playing their set, and no one enjoying"
                 + " the current music. He",20,80);
-        g.drawString(" sits patiently in the corner of the venue waiting for the �best� band on Earth"
+        g.drawString(" sits patiently in the corner of the venue waiting for the \"best\" band on Earth"
                 + " to come on stage.",30,105);
         g.drawString("He passes the time by playing Candy Crush on his phone.",200,130);
     }
     public SitPan3() {
 
     }
-}
-
-class SitPan3_2 extends JPanel {
-    public void paintComponent(Graphics g) {
-        super.paintComponent(g);
-        Font f = new Font("Helvetica",Font.PLAIN,22);
-        g.setFont(f);
-        g.drawString("Suddenly, the sound cuts off and the voice of Angus Young fills the air. "
-                + "�ALRIGHT FUCKERS",30,30);
-    }
-    public SitPan3_2() {
-
-    }
-}
-
-class SitPan3{
-
 }
 
 class SitPan4 extends JPanel { // Andrea Ecarma
