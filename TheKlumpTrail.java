@@ -36,14 +36,22 @@ import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
-class SitPan1{
-  public void paintComponent(Graphics g) {
-        super.paintComponent(g);
-        Font F = new Font("Helvetica", Font.PLAIN,16);
-        g.setFont(f);
-        g.drawString(
+class SitPan1 extends JPanel{
+	
+  public SitPan1() {
     }
+  public void paintComponent(Graphics g) { 
+        super.paintComponent(g);
+        Font f = new Font("Helvetica", Font.PLAIN,22);
+        g.setFont(f);
+        g.drawString("The year is 2020 and summer vacation has just started. ",250,25);
+        g.drawString("Despite that, Dr. Klump has woken up at 7:00 am and exclaimed",250,50);
+        g.drawString(" “I can’t wait to go to this ACDC concert at 10 in the morning!",250,75);
+        g.drawString(" I wonder what I should wear…”",250,100);
+    }
+
 }
+
 class SitPan2{}
 
 class Sit3 {
