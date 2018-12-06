@@ -52,8 +52,7 @@ class Scenario { // For the scenes
 		setOptions(options);
 	}
 	
-	public String[] UpdateScenario(String a, String[] b)
-    {
+	public String[] UpdateScenario(String a, String[] b) {
         if (a == "Intro") {
             b[0] = "AC/DC tank top, really short jorts, and flip flops";
             b[1] = "AC/DC t-shirt, jeans, and sneakers";
@@ -81,14 +80,15 @@ class Scenario { // For the scenes
 		return b;
     }
     
-    public void ChangeScene()
-    {
-    	if (getScene() == "Intro")
-    	{
+    public void ChangeScene() {
+    	if (getScene() == "Intro") {
     		setScene("Situation2");
+    	} else if (getScene() == "Situation2") {
+    		setScene("Situation3");
+    	} else if (getScene() == "Situation3") {
+    		setScene("Situation3");
     	}
         // setScene
-    	
         options = UpdateScenario(getScene(), options);
     }
 }
