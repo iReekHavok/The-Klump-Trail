@@ -24,6 +24,11 @@ import java.awt.Graphics;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
+import java.io.File;
+
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -51,7 +56,6 @@ class Scenario { // For the scenes
     public void setOptions(String[] options) {
         this.options = options;
     }
-    // getOptions(getScene(), 2)
 
     public Scenario(String scene, String[] options) { // Constructor
             setScene(scene);
@@ -61,6 +65,7 @@ class Scenario { // For the scenes
     public String[] UpdateScenario(String a, String[] b) {
         // JButton accepts HTML formatting, so I used it here so the button doesn't stretch out too far
         if (a == "Intro") {
+            // Image klump.jpg
             b[0] = "AC/DC tank top, really short jorts, and flip flops";
             b[1] = "AC/DC t-shirt, jeans, and sneakers";
             b[2] = "His usual office clothes and shoes";
@@ -69,6 +74,7 @@ class Scenario { // For the scenes
                     + "in the morning! I wonder what I should wear?\" </html>"; 
         }
         else if (a == "Situation2") {
+            // Image youngKlump.jpg
             b[0] = "Grab some leftover pizza and Red Bull";
             b[1] = "Decide to stop by McD on the way to the venue";
             b[2] = "Skip breakfast because he wants a good spot";
@@ -85,6 +91,7 @@ class Scenario { // For the scenes
                     "</html>";   
         }
         else if (a == "Situation3") {
+            // Image excited.jpg
             b[0] = "Join in on the mosh pit";
             b[1] = "Ignore the mosh pit and continue to rock up front";
             b[2] = "Out of fear, call the police";
@@ -106,29 +113,34 @@ class Scenario { // For the scenes
             // TEMP ENDING FOR NOOOOOOOOOOOOOOOOOOOW
             b[3] = "<html>The time is now 10 pm and the concert has finally ended.<br />" 
                     + "Dr. Klump heads back to his car after an amazing night.<br />" 
-                    + "He gets in his car and heads through the McDonalds drive thru.<br />" 
-                    + "The guy working the drive thru tells him Klump that the ice cream machine is broken."
-                    + " “Oh, is that the case? I’m an Electrical Engineer and a software GOD. Let me come in and fix "
-                    + "that shit for you guys.” “I’m sorry sir, we can’t let you do that.” “NO, I WANT MY ICE CREAM!”"
-                    + " “I’m so sorry sir, I’m gonna have to ask you to leave this drive thru.” “You know what, FINE. "
-                    + "I make ice cream better than this junk anyway. I’m outtie.” Dr. Klump leaves the drive thru and, on "
-                    + "his way out, sees Andrea, a college dropout, sitting on the curb in the parking lot. Dr. Klump "
-                    + "decides to park and go talk to her. “Hey Drea, how you doing? I heard you dropped out 2 years ago.”  "
-                    + "“Oh, I’m doing alright, just out here starving. Hey, I give people tattoos now as my job. How about "
-                    + "I give you a tattoo of whatever you want and you pay me by getting me some food?” “Sure, sounds good. "
-                    + "I want an AC/DC on my face. AC on my right cheek, the slash across my nose, and DC on the left.”"
-                    + " “Uhhhhh are you sure?” “Yeah, I just saw them live today and I’m feeling really good.” "
-                    + "“… Alright, if you say so.” Andrea pulls out her rusty tattoo kit, which includes expired ink, "
-                    + "and gets to work. Dr. Klump doesn’t notice because it’s dimly lit. After the tattoo is finished, "
-                    + "he heads inside McDonalds to see the masterpiece in the bathroom. When he looks in the mirror, "
-                    + "he sees the disgusting job that has just been done on his face. “Oh GAWD! It’s… It’s…” "
-                    + "He proceeds to cry and succumbs to depression, gets tetanus, and septic shock. He dies on the spot. END</html>";
+                    + "He gets in his car and heads through the McDonalds drive thru.<br />"
+                    + "The guy working the drive thru tells him Klump that the ice cream machine is broken.</html>";
         } else if (a == "Situation5") {
-              b[0] = "Thanks";
-              b[1] = "for";
-              b[2] = "PLAYINGGGGGG :D :D :D :D";
-              // Thanks for playing!!
-              b[3] = "<html>Thanks for playing The Klump Trail. This was created by Brendan Cagampang, Andrea Ecarma, Edgar Flores, and Mike Palermo. <br />"
+             b[0] = "Oh";
+             b[1] = "no";
+             b[2] = ":c";
+             // Thanks for playing!!
+             b[3] = "<html> “Oh, is that the case? I’m an Electrical Engineer and a software GOD. Let me come in and fix "
+                     + "that shit for you guys.” “I’m sorry sir, we can’t let you do that.” “NO, I WANT MY ICE CREAM!”"
+                     + " “I’m so sorry sir, I’m gonna have to ask you to leave this drive thru.” “You know what, FINE. "
+                     + "I make ice cream better than this junk anyway. I’m outtie.” Dr. Klump leaves the drive thru and, on "
+                     + "his way out, sees Andrea, a college dropout, sitting on the curb in the parking lot. Dr. Klump "
+                     + "decides to park and go talk to her. “Hey Drea, how you doing? I heard you dropped out 2 years ago.”  "
+                     + "“Oh, I’m doing alright, just out here starving. Hey, I give people tattoos now as my job. How about "
+                     + "I give you a tattoo of whatever you want and you pay me by getting me some food?” “Sure, sounds good. "
+                     + "I want an AC/DC on my face. AC on my right cheek, the slash across my nose, and DC on the left.”"
+                     + " “Uhhhhh are you sure?” “Yeah, I just saw them live today and I’m feeling really good.” "
+                     + "“… Alright, if you say so.” Andrea pulls out her rusty tattoo kit, which includes expired ink, "
+                     + "and gets to work. Dr. Klump doesn’t notice because it’s dimly lit. After the tattoo is finished, "
+                     + "he heads inside McDonalds to see the masterpiece in the bathroom. When he looks in the mirror, "
+                     + "he sees the disgusting job that has just been done on his face. “Oh GAWD! It’s… It’s…” "
+                     + "He proceeds to cry and succumbs to depression, gets tetanus, and septic shock. He dies on the spot. END</html>";
+        } else if (a == "Situation6") {
+             b[0] = "Thanks";
+             b[1] = "for";
+             b[2] = "PLAYINGGGGGG :D :D :D :D";
+             // Thanks for playing!!
+             b[3] = "<html>Thanks for playing The Klump Trail. This was created by Brendan Cagampang, Andrea Ecarma, Edgar Flores, and Mike Palermo. <br />"
                     + "sry u dieded :c </html>";
         }
         return b;
@@ -143,6 +155,8 @@ class Scenario { // For the scenes
             setScene("Situation4");
         } else if (getScene() == "Situation4") {
             setScene("Situation5");
+        } else if (getScene() == "Situation5") {
+            setScene("Situation6");
         }
         // setScene
         
@@ -192,9 +206,8 @@ class KlumpFrame extends JFrame implements ActionListener { // Frame
         setTitle("The Klump Trail");
         Container c = getContentPane();
         c.setLayout(new BorderLayout());
-        //c.add(kpan,BorderLayout.CENTER);
-        String[] test = new String[4];
-        situation = new Scenario("Intro", test);
+        String[] test = new String[5];
+        situation = new Scenario("Intro",test);
         situation.setScene("Intro");
         situation.UpdateScenario(situation.getScene(), situation.getOptions());
 
@@ -211,6 +224,7 @@ class KlumpFrame extends JFrame implements ActionListener { // Frame
         // Declare a label for the Dialogue
         JLabel lblStory = new JLabel();
         lblStory.setText(situation.getOptions(3));
+        
 
         // Declare your buttons
         JButton btn1 = new JButton();
@@ -258,7 +272,7 @@ class KlumpFrame extends JFrame implements ActionListener { // Frame
                         repaint();
                 }
         });
-
+        
         panRight.add(btn1);
         panRight.add(btn2);
         panRight.add(btn3);
@@ -271,7 +285,7 @@ class KlumpFrame extends JFrame implements ActionListener { // Frame
     }
 }
 
-public class TheKlumpTrail {
+public class TheKlumpTrailANDREA {
     public static void main(String[] args) {
         KlumpFrame kfrm = new KlumpFrame();
         kfrm.configureMenu();
