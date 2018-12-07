@@ -1,6 +1,18 @@
-// Andrea Ecarma 
-// Edgar Flores
-//  Presents The Klump Trail
+/*
+                        The Klump Trail
+Created by Brendan Cagampang, Andrea Ecarma, Edgar Flores, and Mike Palermo.
+
+These were the tasks assigned:
+Brendan - Situation 3
+Andrea - Situation 4
+Edgar - Situation 2
+Mike - Siatuation 1
+
+The purpose of this project is to make Dr. Klump either laugh or cry. That is all.
+
+This is a clicking game, so the user just needs to click Next and sometimes select an option.
+
+*/
 
 import java.awt.BorderLayout;
 import java.awt.Component;
