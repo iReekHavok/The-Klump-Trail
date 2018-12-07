@@ -32,6 +32,8 @@ import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 import javax.swing.JLabel;
 
+
+
 class Scenario { // For the scenes
     private String scene;
     private String[] options = new String[4];
