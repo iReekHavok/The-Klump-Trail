@@ -26,14 +26,11 @@ import java.awt.Graphics;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 class SitPan1 extends JPanel{
@@ -46,13 +43,14 @@ class SitPan1 extends JPanel{
         g.setFont(f);
         g.drawString("The year is 2020 and summer vacation has just started. ",250,25);
         g.drawString("Despite that, Dr. Klump has woken up at 7:00 am and exclaimed",250,50);
-        g.drawString(" “I can’t wait to go to this ACDC concert at 10 in the morning!",250,75);
-        g.drawString(" I wonder what I should wear…”",250,100);
+        g.drawString(" \"I can't wait to go to this ACDC concert at 10 in the morning!",250,75);
+        g.drawString(" I wonder what I should wear...\"",250,100);
     }
-
 }
 
-class SitPan2{}
+class SitPan2 {
+
+}
 
 class Sit3 {
     private String sit3Text;
@@ -73,7 +71,7 @@ class Sit3 {
 class SitPan3 extends JPanel {
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
-        Font f = new Font("Helvetica",Font.PLAIN,22);
+        Font f = new Font("Helvetica",Font.PLAIN,12);
         g.setFont(f);
         g.drawString("Dr. Klump has now arrived at the venue and is very excited! He waits in line, "
                 + "head-banging to the",30,30);
@@ -81,29 +79,28 @@ class SitPan3 extends JPanel {
                 + " environment.",30,55);
         g.drawString("Expensive beer and food, cover band playing their set, and no one enjoying"
                 + " the current music. He",20,80);
-        g.drawString(" sits patiently in the corner of the venue waiting for the �best� band on Earth"
+        g.drawString(" sits patiently in the corner of the venue waiting for the \"best\" band on Earth"
                 + " to come on stage.",30,105);
         g.drawString("He passes the time by playing Candy Crush on his phone.",200,130);
     }
-    public SitPan3() {}
+    public SitPan3() {
+
+    }
 }
-class SitPan3_2 extends JPanel {
+
+class SitPan4 extends JPanel { // Andrea Ecarma
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
         Font f = new Font("Helvetica",Font.PLAIN,22);
         g.setFont(f);
-        g.drawString("Suddenly, the sound cuts off and the voice of Angus Young fills the air. "
-                + "�ALRIGHT FUCKERS",30,30);
+        g.drawString("");
     }
-    public SitPan3_2() {}
 }
 
-=======
-class SitPan3{}
-
-class SitPan4{}
-
 class KlumpFrame extends JFrame implements ActionListener{
+    private Sit3 sit3Text;
+    private SitPan3 sp3;
+    
     public void configureMenu() {
         JMenuBar bar = new JMenuBar();
         JMenu mnuFile = new JMenu("File");
@@ -131,35 +128,23 @@ class KlumpFrame extends JFrame implements ActionListener{
         JButton btn3_1 = new JButton();
         JButton btn3_2 = new JButton();
         JButton btn3_3 = new JButton();
-        JButton btnNext = new JButton();
         btn3_1.setText("Join the mosh pit");
         btn3_2.setText("Ignore the mosh pit");
         btn3_3.setText("Call the police");
-        btnNext.setText("Next");
         c.add(panRight, BorderLayout.EAST);
         c.add(panCenter, BorderLayout.CENTER);
         c.add(panSouth, BorderLayout.SOUTH);
-        
-        btnNext.addActionListener(  // replaces text in South border with next text
-                new ActionListener() {
-                    public void actionPerformed(ActionEvent e) {
-                        
-                        repaint();
-                    }
-                }
-        );
 
         btn3_1.addActionListener(
                 new ActionListener() {
                     public void actionPerformed(ActionEvent e) {
                         sit3Text.setSit3Text(String.format(
-                                "�LET�S FUCKING GOOOOOO� exclaims Dr. Klump, as "
+                                "\"LET'S FUCKING GOOOOOO\" exclaims Dr. Klump, as "
                                         + "he flails his arms and legs around, hitting "
                                         + "various people, even knocking some out cold.",
                                 null));
                         btn3_2.setEnabled(false);
                         btn3_3.setEnabled(false);
-                        btnNext.setEnabled(false);
                         repaint();
                     }
                 }
@@ -171,14 +156,13 @@ class KlumpFrame extends JFrame implements ActionListener{
                                 "Dr. Klump ignores the youngsters and continues to rock on"
                                         + " at the front of the stage. Angus Young sees him"
                                         + " up front enjoying their set, so he shines a light"
-                                        + " on him, points, and says �YOU! You don�t have much"
-                                        + " time left, so get up here and join us!� Not knowing"
+                                        + " on him, points, and says \"YOU! You don't have much"
+                                        + " time left, so get up here and join us!\" Not knowing"
                                         + " whether to be happy or sad about that statement, he "
                                         + "gets on stage and spends the rest of the day with the band.",
                                 null));
                         btn3_1.setEnabled(false);
                         btn3_3.setEnabled(false);
-                        btnNext.setEnabled(false);
                         repaint();
                     }
                 }
@@ -187,15 +171,14 @@ class KlumpFrame extends JFrame implements ActionListener{
                 new ActionListener() {
                     public void actionPerformed(ActionEvent e) {
                         sit3Text.setSit3Text(String.format(
-                                "�Dr. Klump fears for his life and decides to call the police. �There�s a "
-                                        + "mosh pit starting up and I�m scared. Please stop them!� One of "
-                                        + "the teens in the mosh pit sees this and yells �HE�S CALLING THE "
-                                        + "COPS, GET HIS ASS!� The pit gathers around Klump, waits for the"
+                                "Dr. Klump fears for his life and decides to call the police. \"There's a "
+                                        + "mosh pit starting up and I'm scared. Please stop them!\" One of "
+                                        + "the teens in the mosh pit sees this and yells \"HE'S CALLING THE "
+                                        + "COPS, GET HIS ASS!\" The pit gathers around Klump, waits for the"
                                         + " drop, and then tramples him to death. END",
                                 null));
                         btn3_1.setEnabled(false);
                         btn3_2.setEnabled(false);
-                        btnNext.setEnabled(false);
                         repaint();
                     }
                 }
@@ -203,15 +186,10 @@ class KlumpFrame extends JFrame implements ActionListener{
         panRight.add(btn3_1);
         panRight.add(btn3_2);
         panRight.add(btn3_3);
-        panRight.add(btnNext);
         panCenter.setBackground(Color.BLACK);
         sp3 = new SitPan3();
-        sp3.setPreferredSize(new Dimension(300,150));
+        sp3.setPreferredSize(new Dimension(300,350));
         c.add(sp3, BorderLayout.SOUTH);
-        JPanel panRight = new JPanel(new GridLayout(3,1));
-        JPanel panSouth = new JPanel(new FlowLayout());
-        JPanel panCenter = new JPanel();
-        JButton btnNext = new JButton();
         c.add(panRight, BorderLayout.EAST);
         c.add(panCenter, BorderLayout.CENTER);
         c.add(panSouth, BorderLayout.SOUTH);
