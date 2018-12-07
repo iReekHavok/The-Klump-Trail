@@ -12,6 +12,9 @@ The purpose of this project is to make Dr. Klump either laugh or cry. That is al
 
 This is a clicking game, so the user just needs to click Next and sometimes select an option.
 
+ScenarioIOController, main, text and binary serialization, future enhancements include adding more photos and side
+dialogue, and more menu buttons to change panel size and color
+
 */
 
 import java.awt.BorderLayout;
@@ -27,8 +30,18 @@ import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.PrintWriter;
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Scanner;
 
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
@@ -42,8 +55,22 @@ import javax.swing.JLabel;
 
 class Scenario { // For the scenes
     private String scene;
-    private String[] options = new String[5];
+    private String[] options;
+    private int choice;
+    private String chosenOption;
     
+    public String getChosenOption() {
+        return getOptions(choice);
+    }
+    public void setChosenOption(String chosenOption) {
+            this.chosenOption = chosenOption;
+    }
+    public int getChoice() {
+            return choice;
+    }
+    public void setChoice(int choice) {
+            this.choice = choice;
+    }
     public String getScene() {
         return scene;
     }
@@ -63,6 +90,17 @@ class Scenario { // For the scenes
     public Scenario(String scene, String[] options) { // Constructor
             setScene(scene);
             setOptions(options);
+    }
+    public Scenario(String scene, String chosenOption) {
+    	setScene(scene);
+    	setChosenOption(chosenOption);
+    }
+    public String scenarioString(String a,String[]b, int c) {
+   	 String[] array = UpdateScenario(a,b);
+   	 return array[c];
+    }
+    public String toString() {
+    	return String.format("%s %s", scene,chosenOption);
     }
 
     public String[] UpdateScenario(String a, String[] b) {
@@ -125,21 +163,20 @@ class Scenario { // For the scenes
              b[0] = "Oh";
              b[1] = "no";
              b[2] = ":c";
-             // Thanks for playing!!
              b[3] = "<html> “Oh, is that the case? I’m an Electrical Engineer and a software GOD. Let me come in and fix "
-                     + "that shit for you guys.” “I’m sorry sir, we can’t let you do that.” “NO, I WANT MY ICE CREAM!”"
-                     + " “I’m so sorry sir, I’m gonna have to ask you to leave this drive thru.” “You know what, FINE. "
-                     + "I make ice cream better than this junk anyway. I’m outtie.” Dr. Klump leaves the drive thru and, on "
+                     + "that shit for you guys.�? “I’m sorry sir, we can’t let you do that.�? “NO, I WANT MY ICE CREAM!�?"
+                     + " “I’m so sorry sir, I’m gonna have to ask you to leave this drive thru.�? “You know what, FINE. "
+                     + "I make ice cream better than this junk anyway. I’m outtie.�? Dr. Klump leaves the drive thru and, on "
                      + "his way out, sees Andrea, a college dropout, sitting on the curb in the parking lot. Dr. Klump "
-                     + "decides to park and go talk to her. “Hey Drea, how you doing? I heard you dropped out 2 years ago.”  "
+                     + "decides to park and go talk to her. “Hey Drea, how you doing? I heard you dropped out 2 years ago.�?  "
                      + "“Oh, I’m doing alright, just out here starving. Hey, I give people tattoos now as my job. How about "
-                     + "I give you a tattoo of whatever you want and you pay me by getting me some food?” “Sure, sounds good. "
-                     + "I want an AC/DC on my face. AC on my right cheek, the slash across my nose, and DC on the left.”"
-                     + " “Uhhhhh are you sure?” “Yeah, I just saw them live today and I’m feeling really good.” "
-                     + "“… Alright, if you say so.” Andrea pulls out her rusty tattoo kit, which includes expired ink, "
+                     + "I give you a tattoo of whatever you want and you pay me by getting me some food?�? “Sure, sounds good. "
+                     + "I want an AC/DC on my face. AC on my right cheek, the slash across my nose, and DC on the left.�?"
+                     + " “Uhhhhh are you sure?�? “Yeah, I just saw them live today and I’m feeling really good.�? "
+                     + "“… Alright, if you say so.�? Andrea pulls out her rusty tattoo kit, which includes expired ink, "
                      + "and gets to work. Dr. Klump doesn’t notice because it’s dimly lit. After the tattoo is finished, "
                      + "he heads inside McDonalds to see the masterpiece in the bathroom. When he looks in the mirror, "
-                     + "he sees the disgusting job that has just been done on his face. “Oh GAWD! It’s… It’s…” "
+                     + "he sees the disgusting job that has just been done on his face. “Oh GAWD! It’s… It’s…�? "
                      + "He proceeds to cry and succumbs to depression, gets tetanus, and septic shock. He dies on the spot. END</html>";
              b[4] = "youDied5.jpg";
         } else if (a == "Situation6") {
@@ -197,6 +234,9 @@ class KlumpFrame extends JFrame implements ActionListener { // Frame
     private Scenario situation;
     private Image img;
     private File file;
+    private ArrayList<Scenario> situations;
+    private ScenarioIOController sioc;
+    private TheKlumpTrailANDREA tkt;
 
 
     public void configureMenu() {
@@ -209,6 +249,18 @@ class KlumpFrame extends JFrame implements ActionListener { // Frame
                 System.exit(0); // How user will exit a program
             }
         });
+        JMenuItem miNewGame = new JMenuItem("New Game");
+        miNewGame.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+            	//System.exit(0);
+                try {
+            	tkt.runGame();
+                } catch(IOException e1) {
+                    e1.printStackTrace();
+                }
+            }
+        });
+        mnuFile.add(miNewGame);
         mnuFile.add(miExit);
         bar.add(mnuFile);
         setJMenuBar(bar);
@@ -223,13 +275,16 @@ class KlumpFrame extends JFrame implements ActionListener { // Frame
         situation = new Scenario("Intro",test);
         
         // Place an image in the center Panel
-        BufferedImage img = ImageIO.read(new File("D:/Eclipse-Java/TheKlumpTrail/src/excited3.jpg"));
+        BufferedImage img = ImageIO.read(new File("excited3.jpg"));
         ImageIcon icon = new ImageIcon(img);
         JLabel lblIcon = new JLabel();
-        lblIcon.setIcon(icon); 
+        lblIcon.setIcon(icon);
+        situation = new Scenario("Intro", test);
+        situation.setScene("Intro");
+        situation.UpdateScenario(situation.getScene(), situation.getOptions());
         
         setDefaultCloseOperation(EXIT_ON_CLOSE);
-        setBounds(50,50,800,800);
+        setBounds(50,50,1000,1000);
         setTitle("The Klump Trail");
         Container c = getContentPane();
         c.setLayout(new BorderLayout());
@@ -307,16 +362,81 @@ class KlumpFrame extends JFrame implements ActionListener { // Frame
         configureMenu();
     }
 
-    public KlumpFrame() throws IOException {
+    public KlumpFrame(ArrayList<Scenario> situations) throws IOException {
+    	this.situations = situations;
         configureUI();
     }
 }
 
-public class TheKlumpTrailANDREA {
+class ScenarioIOController {  // controller class for "write points to file" use case
+private Scenario situation;
+
+public boolean writePointsToTextFile(ArrayList<Scenario> scenarios, String fname) {
+        try {
+                PrintWriter pw = new PrintWriter(new BufferedWriter(
+                        new FileWriter(new File(fname))));
+                for (Scenario s : scenarios) {
+                        pw.println(s);
+                }
+                pw.close();
+                return true;
+        } catch (Exception ex) {
+                return false;
+        }
+}
+        public ArrayList<Scenario> readPointsFromTextFile(String fname) {
+                try {
+                        Scanner sc = new Scanner(new File(fname));
+                        ArrayList<Scenario> scenarios= new ArrayList<Scenario>();
+                        String line;
+                        String[] parts;
+                        while (sc.hasNextLine()) {
+                                line = sc.nextLine();
+                                line = line.trim();
+                                parts = line.split(" ");
+                                scenarios.add(new Scenario(parts[0], parts));
+                        }
+                        sc.close();
+                        return scenarios;
+                } catch (Exception ex) {
+                        return null;
+                }
+        }
+        public boolean writePointsToBinaryFile(ArrayList<Scenario> scenarios, String fname) {
+                try {
+                        ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(
+                                new File(fname)));
+                        oos.writeObject(scenarios);
+                        oos.close();
+                } catch (Exception ex) {
+                        return false;
+                }
+                System.out.println("Will now read them back in: ");
+                ArrayList<Scenario> readScenarios;
+                try {
+                        ObjectInputStream ois = new ObjectInputStream(new FileInputStream(
+                                new File(fname)));
+                        readScenarios = (ArrayList<Scenario>)(ois.readObject());
+                        ois.close();
+                        for (Scenario s : readScenarios) {
+                                System.out.println(s);
+                        }
+                } catch (Exception ex) {
+                        return false;
+                }
+                return true;
+        }
+}
+
+public class TheKlumpTrailANDREA implements Serializable {
     public static void main(String[] args) throws IOException {
-        KlumpFrame kfrm = new KlumpFrame();
+    	runGame();
+    }
+    public static void runGame() throws IOException{
+    	ArrayList<Scenario> situations = new ArrayList<Scenario>();
+    	KlumpFrame kfrm = new KlumpFrame(situations); 
         kfrm.configureMenu();
         kfrm.configureUI();
         kfrm.setVisible(true);
-    }
+       }
 }
