@@ -75,10 +75,19 @@ class Scenario { // For the scenes
         else if (a == "Situation4") {
        	 	b[0] = "Buys food for himself";
             b[1] = "Buy food for the whole family";
-            b[2] = "He changes his mind after hearing that the ice cream machine is broken and they wonít let him fix it";
+
+            // JButton accepts HTML formatting, so I used it here so the button doesn't stretch out too far
+            b[2] = "<html><center>He changes his mind after hearing that the ice cream<br />"
+                    + "machine is broken and they won't let him fix it</center></html>";
+            b[3] = "";
+        }
+        return b;
+
+            b[2] = "He changes his mind after hearing that the ice cream machine is broken and they won‚Äôt let him fix it";
             b[3] = "";   
        }
 		return b;
+
     }
     
     public void ChangeScene()
@@ -175,8 +184,8 @@ class KlumpFrame extends JFrame implements ActionListener { // Frame
 		JLabel lblStory = new JLabel();
 		lblStory.setText("The year is 2020 and summer vacation has just started.\n "
 				+ "Despite that, Dr. Klump has woken up at 7:00 am and exclaimed \n"
-				+ "ìI canít wait to go to this ACDC concert at 10 in the morning!\n "
-				+ "I wonder what I should wear?î");
+				+ "‚ÄúI can‚Äôt wait to go to this ACDC concert at 10 in the morning!\n "
+				+ "I wonder what I should wear?‚Äù");
 		
 		
 		// Declare your buttons
