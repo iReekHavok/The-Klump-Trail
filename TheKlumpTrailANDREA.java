@@ -1,3 +1,4 @@
+
 /*
                         The Klump Trail
 Created by Brendan Cagampang, Andrea Ecarma, Edgar Flores, and Mike Palermo.
@@ -24,6 +25,14 @@ import java.awt.Graphics;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.PrintWriter;
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Scanner;
+
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -76,7 +85,7 @@ class Scenario { // For the scenes
                     + "Dr. Klump gets dressed, takes a look in the mirror, and says to himself"
                     + "\"Wow, who's that stud in the mirror? Oh wait, THAT'S ME! EHEHEHE!\""
                     + "His wife, who's sitting up in bed watching him laugh to himself, just stares at him, "
-                    + "probably wondering why he’s always like this. Dr. Klump notices this in the mirror, "
+                    + "probably wondering why heâ€™s always like this. Dr. Klump notices this in the mirror, "
                     + "turns around, stares at his wife for a good minute with no expression and without saying "
                     + "a word, and walks out of the room." 
                     + "He gets to the empty living room and sees that it's already 8:00 and that "
@@ -113,7 +122,7 @@ class Scenario { // For the scenes
                     + " \"I'm so sorry sir, I'm gonna have to ask you to leave this drive thru.\" \"You know what, FINE. "
                     + "I make ice cream better than this junk anyway. I'm outtie.\" Dr. Klump leaves the drive thru and, on "
                     + "his way out, sees Andrea, a college dropout, sitting on the curb in the parking lot. Dr. Klump "
-                    + "decides to park and go talk to her. “Hey Drea, how you doing? I heard you dropped out 2 years ago.�?  "
+                    + "decides to park and go talk to her. â€œHey Drea, how you doing? I heard you dropped out 2 years ago.â€?  "
                     + "Oh, I'm doing alright, just out here starving. Hey, I give people tattoos now as my job. How about "
                     + "I give you a tattoo of whatever you want and you pay me by getting me some food?\" \"Sure, sounds good. "
                     + "I want an AC/DC on my face. AC on my right cheek, the slash across my nose, and DC on the left.\""
@@ -270,11 +279,53 @@ class KlumpFrame extends JFrame implements ActionListener { // Frame
     }
 }
 
-public class TheKlumpTrailANDREA {
+class ScenarioIOController {  // controller class for "write points to file" use case
+	private Scenario situation;
+	
+	public boolean writePointsToTextFile(ArrayList<Scenario> scenarios, String fname) {
+		try {
+			PrintWriter pw = new PrintWriter(new BufferedWriter(
+				new FileWriter(new File(fname))));
+			for (Scenario s : scenarios) {
+				pw.println(s);
+			}
+			pw.close();
+			return true;
+		} catch (Exception ex) {
+			return false;
+		}
+	}
+		public ArrayList<Scenario> readPointsFromTextFile(String fname) {
+			try {
+				Scanner sc = new Scanner(new File(fname));
+				ArrayList<Scenario> scenarios= new ArrayList<Scenario>();
+				String line;
+				String[] parts;
+				while (sc.hasNextLine()) {
+					line = sc.nextLine();
+					line = line.trim();
+					parts = line.split(" ");
+					scenarios.add(new Scenario(parts[0], parts));
+				}
+				sc.close();
+				return scenarios;
+			} catch (Exception ex) {
+				return null;
+			}
+		}
+
+	}
+
+
+public class TheKlumpTrailANDREA implements Serializable {
     public static void main(String[] args) {
         KlumpFrame kfrm = new KlumpFrame();
+        ArrayList<Scenario> scenarios = new ArrayList<Scenario>();
         kfrm.configureMenu();
         kfrm.configureUI();
         kfrm.setVisible(true);
+        ScenarioIOController sioc = new ScenarioIOController();
+        sioc.writePointsToTextFile(scenarios,"situation.txt");
     }
 }
+
