@@ -65,7 +65,7 @@ class Scenario { // For the scenes
             b[1] = "AC/DC t-shirt, jeans, and sneakers";
             b[2] = "His usual office clothes and shoes";
             b[3] = "<html>The year is 2020 and summer vacation has just started. Despite that, Dr. Klump has"
-                    + "woken up at 7:00 am and exclaimed \" I can’t wait to go to this ACDC concert at 10"
+                    + "woken up at 7:00 am and exclaimed \" I can't wait to go to this ACDC concert at 10"
                     + "in the morning! I wonder what I should wear?\" </html>"; 
         }
         else if (a == "Situation2") {
@@ -74,12 +74,12 @@ class Scenario { // For the scenes
             b[2] = "Skip breakfast because he wants a good spot";
             b[3] = "<html>"
                     + "Dr. Klump gets dressed, takes a look in the mirror, and says to himself"
-                    + "\"Wow, who’s that stud in the mirror? Oh wait, THAT’S ME! EHEHEHE!\""
-                    + "His wife, who’s sitting up in bed watching him laugh to himself, just stares at him, "
+                    + "\"Wow, who's that stud in the mirror? Oh wait, THAT'S ME! EHEHEHE!\""
+                    + "His wife, who's sitting up in bed watching him laugh to himself, just stares at him, "
                     + "probably wondering why he’s always like this. Dr. Klump notices this in the mirror, "
                     + "turns around, stares at his wife for a good minute with no expression and without saying "
                     + "a word, and walks out of the room." 
-                    + "He gets to the empty living room and sees that it’s already 8:00 and that "
+                    + "He gets to the empty living room and sees that it's already 8:00 and that "
                     + "it takes about an hour and a half to get to the venue. \" Aw shit son, I gotta "
                     + "get going soon if I want a good place in line!" + 
                     "</html>";   
@@ -108,20 +108,20 @@ class Scenario { // For the scenes
                     + "Dr. Klump heads back to his car after an amazing night.<br />" 
                     + "He gets in his car and heads through the McDonalds drive thru.<br />" 
                     + "The guy working the drive thru tells him Klump that the ice cream machine is broken."
-                    + " “Oh, is that the case? I’m an Electrical Engineer and a software GOD. Let me come in and fix "
-                    + "that shit for you guys.” “I’m sorry sir, we can’t let you do that.” “NO, I WANT MY ICE CREAM!”"
-                    + " “I’m so sorry sir, I’m gonna have to ask you to leave this drive thru.” “You know what, FINE. "
-                    + "I make ice cream better than this junk anyway. I’m outtie.” Dr. Klump leaves the drive thru and, on "
+                    + "\"Oh, is that the case? I'm an Electrical Engineer and a software GOD. Let me come in and fix "
+                    + "that shit for you guys.\" \"m sorry sir, we can't let you do that.\" \"NO, I WANT MY ICE CREAM!\""
+                    + " \"I'm so sorry sir, I'm gonna have to ask you to leave this drive thru.\" \"You know what, FINE. "
+                    + "I make ice cream better than this junk anyway. I'm outtie.\" Dr. Klump leaves the drive thru and, on "
                     + "his way out, sees Andrea, a college dropout, sitting on the curb in the parking lot. Dr. Klump "
-                    + "decides to park and go talk to her. “Hey Drea, how you doing? I heard you dropped out 2 years ago.”  "
-                    + "“Oh, I’m doing alright, just out here starving. Hey, I give people tattoos now as my job. How about "
-                    + "I give you a tattoo of whatever you want and you pay me by getting me some food?” “Sure, sounds good. "
-                    + "I want an AC/DC on my face. AC on my right cheek, the slash across my nose, and DC on the left.”"
-                    + " “Uhhhhh are you sure?” “Yeah, I just saw them live today and I’m feeling really good.” "
-                    + "“… Alright, if you say so.” Andrea pulls out her rusty tattoo kit, which includes expired ink, "
-                    + "and gets to work. Dr. Klump doesn’t notice because it’s dimly lit. After the tattoo is finished, "
+                    + "decides to park and go talk to her. “Hey Drea, how you doing? I heard you dropped out 2 years ago.�?  "
+                    + "Oh, I'm doing alright, just out here starving. Hey, I give people tattoos now as my job. How about "
+                    + "I give you a tattoo of whatever you want and you pay me by getting me some food?\" \"Sure, sounds good. "
+                    + "I want an AC/DC on my face. AC on my right cheek, the slash across my nose, and DC on the left.\""
+                    + " \"Uhhhhh are you sure?\" \"Yeah, I just saw them live today and I'm feeling really good.\" "
+                    + " ...\"Alright, if you say so.\" Andrea pulls out her rusty tattoo kit, which includes expired ink, "
+                    + "and gets to work. Dr. Klump doesn't notice because it's dimly lit. After the tattoo is finished, "
                     + "he heads inside McDonalds to see the masterpiece in the bathroom. When he looks in the mirror, "
-                    + "he sees the disgusting job that has just been done on his face. “Oh GAWD! It’s… It’s…” "
+                    + "he sees the disgusting job that has just been done on his face. \"Oh GAWD! It's... It's...\" "
                     + "He proceeds to cry and succumbs to depression, gets tetanus, and septic shock. He dies on the spot. END</html>";
         } else if (a == "Situation5") {
               b[0] = "Thanks";
@@ -174,7 +174,7 @@ class KlumpFrame extends JFrame implements ActionListener { // Frame
         JMenuItem miExit = new JMenuItem("Exit"); // Exit button within File tab
         miExit.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                System.exit(0); // How a user will exit a program
+                System.exit(0); // How user will exit a program
             }
         });
         mnuFile.add(miExit);
@@ -192,7 +192,6 @@ class KlumpFrame extends JFrame implements ActionListener { // Frame
         setTitle("The Klump Trail");
         Container c = getContentPane();
         c.setLayout(new BorderLayout());
-        //c.add(kpan,BorderLayout.CENTER);
         String[] test = new String[4];
         situation = new Scenario("Intro", test);
         situation.setScene("Intro");
@@ -271,7 +270,7 @@ class KlumpFrame extends JFrame implements ActionListener { // Frame
     }
 }
 
-public class TheKlumpTrail {
+public class TheKlumpTrailANDREA {
     public static void main(String[] args) {
         KlumpFrame kfrm = new KlumpFrame();
         kfrm.configureMenu();
