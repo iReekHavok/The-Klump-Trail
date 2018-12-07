@@ -79,7 +79,7 @@ class Scenario { // For the scenes
                     + "probably wondering why he’s always like this. Dr. Klump notices this in the mirror, "
                     + "turns around, stares at his wife for a good minute with no expression and without saying "
                     + "a word, and walks out of the room." 
-                    + "He gets to the empty living room and sees that it’s already 8:00 and that "
+                    + "He gets to the empty living room and sees that it's already 8:00 and that "
                     + "it takes about an hour and a half to get to the venue. \" Aw shit son, I gotta "
                     + "get going soon if I want a good place in line!" + 
                     "</html>";   
