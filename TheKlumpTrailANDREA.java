@@ -73,7 +73,7 @@ class Scenario { // For the scenes
             b[1] = "Buy food for the whole family";
             // JButton accepts HTML formatting, so I used it here so the button doesn't stretch out too far
             b[2] = "<html><center>He changes his mind after hearing that the ice cream<br />"
-                    + "machine is broken and they won’t let him fix it</center></html>";
+                    + "machine is broken and they won't let him fix it</center></html>";
             b[3] = "";
         }
         return b;
